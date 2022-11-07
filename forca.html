@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Forca</title>
+  
+</head>
+
+<body>
+  <div id="tracos"></div>
+  <input type="text" id="letra">
+  <button id="btnVerifica">OK</button>
+
+
+  <script>
+    let palavras = [
+        'casamento', 'churrasco', 'onibus', 'familia',
+        'floricultura', 'marceneiro', 'mosquito', 'abelha',
+        'cabeça', 'formiga', 'carneiro', 'caminhão',
+        'panela', 'flanela', 'padaria', 'perigoso',
+        'urubu', 'cafezal', 'torneira', 'jacare',
+        'palacio', 'comercio', 'misterio', 'professor',
+        'agricultor', 'apicultor', 'cristal', 'macaco',
+        'farofa', 'estrogonofe', 'melancia', 'democracia',
+        'felicidade', 'montanha', 'lasanha', 'mortadela'
+    ] 
+    let palavraSecreta
+    const btnVerifica = document.getElementById('btnVerifica')
+    const letraDigitada = document.getElementById('letra')
+    let i = 0
+    //console.log(palavras)
+    function inicio() {
+      let numAleatorio = Math.trunc(Math.random() * palavras.length) 
+      palavraSecreta = palavras[numAleatorio]
+      for (let y = 0; y < palavraSecreta.length; y++) {
+        tracos.innerHTML += ' _'
+      }
+      console.log(palavraSecreta)
+    }
+    inicio()
+
+    btnVerifica.addEventListener('click', () => {
+      for (let i = 0; i <= palavraSecreta.length; i++) {
+          if(palavraSecreta[i] === letraDigitada.value) {
+            console.log('acertou')
+          } else {console.log('errou')}
+        }  
+    })
+    
+
+    
+  </script>
+</body>
+
+</html>
