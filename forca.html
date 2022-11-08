@@ -5,14 +5,32 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Forca</title>
-  
+  <style>
+    #tracos{
+      font-size: 1.6rem;
+      margin: 10px;
+    }
+
+    #letra{
+      text-align: center;
+      font-size: 1.2rem;
+      width: 40px;
+      height: 42px;
+      margin: 10px;
+    }
+
+    #btnVerifica{
+      font-size: 1.2rem;
+      width: 50px;
+      height: 30px;
+    }
+  </style>
 </head>
 
 <body>
   <div id="tracos"></div>
   <input type="text" id="letra">
   <button id="btnVerifica">OK</button>
-
 
   <script>
     let palavras = [
@@ -30,23 +48,36 @@
     const btnVerifica = document.getElementById('btnVerifica')
     const letraDigitada = document.getElementById('letra')
     let i = 0
+    let letras = []
     //console.log(palavras)
     function inicio() {
       let numAleatorio = Math.trunc(Math.random() * palavras.length) 
+      
       palavraSecreta = palavras[numAleatorio]
       for (let y = 0; y < palavraSecreta.length; y++) {
-        tracos.innerHTML += ' _'
+        letras.unshift('_')
       }
+      tracos.innerHTML = letras
       console.log(palavraSecreta)
     }
-    inicio()
 
-    btnVerifica.addEventListener('click', () => {
+    inicio()
+    let tem = 0
+    let tem2 = 0
+    let naoTem = 0
+    btnVerifica.addEventListener('click', () => {  
       for (let i = 0; i <= palavraSecreta.length; i++) {
-          if(palavraSecreta[i] === letraDigitada.value) {
-            console.log('acertou')
-          } else {console.log('errou')}
-        }  
+        if(palavraSecreta[i] === letraDigitada.value) {
+          tem++
+          letras[i] = palavraSecreta[i]
+          tracos.innerHTML = letras
+        }
+      }
+      tem2 =+ tem 
+      if(tem === 0) {naoTem++}
+      if(tem2 === palavraSecreta.length){console.log('acertou')}
+      console.log(tem)
+      console.log(tem2)  
     })
     
 
