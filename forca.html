@@ -5,84 +5,41 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Forca</title>
-  <style>
-    #tracos{
-      font-size: 1.6rem;
-      margin: 10px;
-    }
-
-    #letra{
-      text-align: center;
-      font-size: 1.2rem;
-      width: 40px;
-      height: 42px;
-      margin: 10px;
-    }
-
-    #btnVerifica{
-      font-size: 1.2rem;
-      width: 50px;
-      height: 30px;
-    }
-  </style>
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <script src="script.js" defer></script>
 </head>
 
 <body>
   <div id="tracos"></div>
   <input type="text" id="letra">
   <button id="btnVerifica">OK</button>
+  <div id="corpo">
+    <div id="cabeca">
+      <img src="./img/cabeca.png">
+    </div>
 
-  <script>
-    let palavras = [
-        'casamento', 'churrasco', 'onibus', 'familia',
-        'floricultura', 'marceneiro', 'mosquito', 'abelha',
-        'cabeça', 'formiga', 'carneiro', 'caminhão',
-        'panela', 'flanela', 'padaria', 'perigoso',
-        'urubu', 'cafezal', 'torneira', 'jacare',
-        'palacio', 'comercio', 'misterio', 'professor',
-        'agricultor', 'apicultor', 'cristal', 'macaco',
-        'farofa', 'estrogonofe', 'melancia', 'democracia',
-        'felicidade', 'montanha', 'lasanha', 'mortadela'
-    ] 
-    let palavraSecreta
-    const btnVerifica = document.getElementById('btnVerifica')
-    const letraDigitada = document.getElementById('letra')
-    let i = 0
-    let letras = []
-    //console.log(palavras)
-    function inicio() {
-      let numAleatorio = Math.trunc(Math.random() * palavras.length) 
-      
-      palavraSecreta = palavras[numAleatorio]
-      for (let y = 0; y < palavraSecreta.length; y++) {
-        letras.unshift('_')
-      }
-      tracos.innerHTML = letras
-      console.log(palavraSecreta)
-    }
+    <div id="tronco">
+      <img src="./img/tronco.png">
+    </div>
 
-    inicio()
-    let tem = 0
-    let tem2 = 0
-    let naoTem = 0
-    btnVerifica.addEventListener('click', () => {  
-      for (let i = 0; i <= palavraSecreta.length; i++) {
-        if(palavraSecreta[i] === letraDigitada.value) {
-          tem++
-          letras[i] = palavraSecreta[i]
-          tracos.innerHTML = letras
-        }
-      }
-      tem2 =+ tem 
-      if(tem === 0) {naoTem++}
-      if(tem2 === palavraSecreta.length){console.log('acertou')}
-      console.log(tem)
-      console.log(tem2)  
-    })
-    
+    <div id="bracoEsq">
+      <img src="./img/braco_esq.png">
+    </div>
+
+    <div id="barcoDir">
+      <img src="./img/braco_dir.png">
+    </div>
+
+    <div id="pernaEsq">
+      <img src="./img/perna_esq.png">
+    </div>
+
+    <div id="pernaDir">
+      <img src="./img/perna_dir.png">
+    </div>
 
     
-  </script>
+  </div>
 </body>
 
 </html>
