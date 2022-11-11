@@ -10,50 +10,83 @@ let palavras = [
   'farofa', 'estrogonofe', 'melancia', 'democracia',
   'felicidade', 'montanha', 'lasanha', 'mortadela', 'cabecalho',
   'formigueiro', 'administrador', 'tempestade', 'relâmpago',
-  'ônibus', 'espacial', 'oceano', 'brasileiro'
-] 
-    let palavraSecreta
-    const btnVerifica = document.getElementById('btnVerifica')
-    const letraDigitada = document.getElementById('letra')
-    let i = 0
-    let letras = []
-    //console.log(palavras)
-    function inicio() {
-      let numAleatorio = Math.trunc(Math.random() * palavras.length) 
-      
-      palavraSecreta = palavras[numAleatorio]
-      for (let y = 0; y < palavraSecreta.length; y++) {
-        letras.unshift(' _')
-      }
+  'ônibus', 'espacial', 'oceano', 'brasileiro', 'edifício'
+]
+
+let palavraSecreta
+//const btnVerifica = document.getElementById('btnVerifica')
+const letraDigitada = document.getElementById('letra')
+let i = 0
+let letras = []
+
+function inicio() {
+  let numAleatorio = Math.trunc(Math.random() * palavras.length)  
+
+  palavraSecreta = palavras[numAleatorio]
+
+  for (let y = 0; y < palavraSecreta.length; y++) {
+  letras.unshift(' _')
+  }
+
+  tracos.innerHTML = letras.join(' ')
+  letraDigitada.focus()
+  console.log(palavraSecreta)
+}
+
+inicio()
+
+let tem = 0
+let naoTem
+let erro = 0
+
+letraDigitada.addEventListener('keyup', () => {  
+  for (let i = 0; i <= palavraSecreta.length; i++) {
+    if(palavraSecreta[i] == letraDigitada.value) {
+      tem++
+      letras[i] = palavraSecreta[i]
       tracos.innerHTML = letras.join(' ')
-      letraDigitada.focus()
-      console.log(palavraSecreta)
+    } else {
+      naoTem++
     }
+  }
+      
+  if(tem == 0) {
+    erro++
+    console.log('nao tem ' + erro)
+    console.log('tem ' + tem)
+  } else {
+    console.log('erro ' + erro)
+  }
+  
+  console.log(tem)
+  letraDigitada.focus()
+  letraDigitada.value = ''
 
-    inicio()
-    let tem = 0
-    let tem2 = 0
-    let naoTem
-    let naoTem2 = 0
+  if(tem == palavraSecreta.length){
+    console.log('acertou')
+  }
+  if(erro >= 6) {
+    console.log('*PERDEU*')
+  }
 
-    btnVerifica.addEventListener('click', () => {  
-      for (let i = 0; i <= palavraSecreta.length; i++) {
-        if(palavraSecreta[i] === letraDigitada.value) {
-          tem++
-          letras[i] = palavraSecreta[i]
-          tracos.innerHTML = letras.join(' ')
-        } else {naoTem = 'n'}
-      }
-      tem2 =+ tem 
-      //if(tem === 0) {naoTem++}
-      if(tem2 === palavraSecreta.length){console.log('acertou')}
-      if(naoTem === 'n'){naoTem2++}
-      if(naoTem2 >= (palavraSecreta.length - 3)) {console.log('*PERDEU*')}
-      letraDigitada.value = ''
-      letraDigitada.focus()
-      console.log('tem:' + tem)
-      console.log('nao tem:' + naoTem)
-      console.log('nao tem2:' + naoTem2)
-      console.log('tem2:' + tem2)  
-    })
-    
+  switch(erro) {
+    case 1:
+      cabeca.style.display = 'block'
+      break
+    case 2:
+      tronco.style.display = 'block'
+      break
+    case 3:
+      bracoEsq.style.display = 'block'
+      break
+    case 4:
+      bracoDir.style.display = 'block'
+      break
+    case 5:
+      pernaEsq.style.display = 'block'
+      break
+    case 6:
+      pernaDir.style.display = 'block'
+      break
+  }
+})
