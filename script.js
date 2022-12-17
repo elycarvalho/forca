@@ -10,7 +10,8 @@ let palavras = [
   'farofa', 'estrogonofe', 'melancia', 'democracia',
   'felicidade', 'montanha', 'lasanha', 'mortadela', 'cabecalho',
   'formigueiro', 'administrador', 'tempestade', 'relâmpago',
-  'ônibus', 'espacial', 'oceano', 'brasileiro', 'edifício'
+  'ônibus', 'espacial', 'oceano', 'brasileiro', 'edifício',
+  'coleira', 'caveira', 'madeira', 'jardineiro', 'escanteio'
 ]
 
 let palavraSecreta
@@ -36,35 +37,43 @@ function inicio() {
 inicio()
 
 let tem = 0
-let naoTem
+let naoTem = 0
 let erro = 0
 
 letraDigitada.addEventListener('keyup', () => {  
+  tem = 0
+  naoTem = 0
   for (let i = 0; i <= palavraSecreta.length; i++) {
     if(palavraSecreta[i] == letraDigitada.value) {
       tem++
       letras[i] = palavraSecreta[i]
       tracos.innerHTML = letras.join(' ')
-    } else {
+    } 
+
+    if(letraDigitada.value != palavraSecreta[i]) {
       naoTem++
     }
   }
-      
-  if(tem == 0) {
-    erro++
-    console.log('nao tem ' + erro)
+    
     console.log('tem ' + tem)
-  } else {
-    console.log('erro ' + erro)
-  }
+    console.log('nao tem ' + naoTem)
   
-  console.log(tem)
+  
+  //console.log(tem)
   letraDigitada.focus()
   letraDigitada.value = ''
+
+  if(tem == 0 && naoTem != 0) {
+    erro++
+  }
+
+  console.log(erro)
 
   if(tem == palavraSecreta.length){
     console.log('acertou')
   }
+
+
   if(erro >= 6) {
     console.log('*PERDEU*')
   }
