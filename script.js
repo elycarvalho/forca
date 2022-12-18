@@ -1,4 +1,7 @@
 let tracos = document.getElementById('tracos')
+let mensagem = document.querySelector('.mensagem')
+let letrasDigitadas = []
+const digitadas = document.querySelector('.digitadas')
 let palavras = [
   'casamento', 'churrasco', 'onibus', 'familia',
   'floricultura', 'marceneiro', 'mosquito', 'abelha',
@@ -11,11 +14,14 @@ let palavras = [
   'felicidade', 'montanha', 'lasanha', 'mortadela', 'cabecalho',
   'formigueiro', 'administrador', 'tempestade', 'relâmpago',
   'ônibus', 'espacial', 'oceano', 'brasileiro', 'edifício',
-  'coleira', 'caveira', 'madeira', 'jardineiro', 'escanteio'
+  'coleira', 'caveira', 'madeira', 'jardineiro', 'escanteio',
+  'cadeira', 'sofrimento', 'sorriso', 'gargalhada', 'palhaço',
+  'garrafa', 'óculos', 'cabelo', 'travesseiro', 'episodio', 'arroto',
+  'xampu', 'irritado', 'mentiroso', 'desodorante', 'supermercado',
+  'equipe', 'novato', 'certeza', 'humor'
 ]
 
 let palavraSecreta
-//const btnVerifica = document.getElementById('btnVerifica')
 const letraDigitada = document.getElementById('letra')
 let i = 0
 let letras = []
@@ -39,13 +45,17 @@ inicio()
 let tem = 0
 let naoTem = 0
 let erro = 0
+let certas = 0
 
-letraDigitada.addEventListener('keyup', () => {  
+letraDigitada.addEventListener('keyup', () => { 
+  letrasDigitadas.push(letraDigitada.value)
+  digitadas.innerHTML = letrasDigitadas 
   tem = 0
   naoTem = 0
   for (let i = 0; i <= palavraSecreta.length; i++) {
     if(palavraSecreta[i] == letraDigitada.value) {
       tem++
+      certas++
       letras[i] = palavraSecreta[i]
       tracos.innerHTML = letras.join(' ')
     } 
@@ -57,9 +67,8 @@ letraDigitada.addEventListener('keyup', () => {
     
     console.log('tem ' + tem)
     console.log('nao tem ' + naoTem)
+    console.log('certas ' + certas)
   
-  
-  //console.log(tem)
   letraDigitada.focus()
   letraDigitada.value = ''
 
@@ -69,13 +78,15 @@ letraDigitada.addEventListener('keyup', () => {
 
   console.log(erro)
 
-  if(tem == palavraSecreta.length){
+  if(certas == palavraSecreta.length){
+    mensagem.innerHTML = 'VOCÊ ACERTOU!'
     console.log('acertou')
   }
 
 
   if(erro >= 6) {
-    console.log('*PERDEU*')
+    mensagem.innerHTML = 'VOCÊ PERDEU!'
+    inicio()
   }
 
   switch(erro) {
