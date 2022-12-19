@@ -4,6 +4,13 @@
   box-sizing: border-box;
 }
 
+body{
+  height: 100vh;
+  font-family: Helvetica, arial, sans-serif;
+ /* background-image: linear-gradient(#F9BB75, #FDC4A3);
+  background-repeat: no-repeat; */
+}
+
 .container{
   margin-top: 30px;
   display: flex;
@@ -17,6 +24,8 @@
 }
 
 #letra{
+  border: 3px solid red;
+  border-radius: 4px;
   text-align: center;
   font-size: 1.5rem;
   width: 40px;
@@ -31,7 +40,6 @@
 }
 
 #corpo{
-  border: 1px solid red;
   width: 160px;
   display: flex;
   flex-direction: column;
@@ -39,7 +47,7 @@
 }
 
 #cabeca{
-
+  font-size: 4.5rem;
 }
 
 #tronco{

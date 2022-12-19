@@ -18,7 +18,7 @@ let palavras = [
   'cadeira', 'sofrimento', 'sorriso', 'gargalhada', 'palhaço',
   'garrafa', 'óculos', 'cabelo', 'travesseiro', 'episodio', 'arroto',
   'xampu', 'irritado', 'mentiroso', 'desodorante', 'supermercado',
-  'equipe', 'novato', 'certeza', 'humor'
+  'equipe', 'novato', 'certeza', 'humor', 'costela'
 ]
 
 let palavraSecreta
@@ -46,21 +46,23 @@ let tem = 0
 let naoTem = 0
 let erro = 0
 let certas = 0
+let letra 
 
 letraDigitada.addEventListener('keyup', () => { 
-  letrasDigitadas.push(letraDigitada.value)
-  digitadas.innerHTML = letrasDigitadas 
+  letra = letraDigitada.value.toLowerCase()
+  letrasDigitadas.push(letra.toUpperCase())
+  digitadas.innerHTML = letrasDigitadas.join(' - ') 
   tem = 0
   naoTem = 0
   for (let i = 0; i <= palavraSecreta.length; i++) {
-    if(palavraSecreta[i] == letraDigitada.value) {
+    if(palavraSecreta[i] == letra) {
       tem++
       certas++
       letras[i] = palavraSecreta[i]
       tracos.innerHTML = letras.join(' ')
     } 
 
-    if(letraDigitada.value != palavraSecreta[i]) {
+    if(letra != palavraSecreta[i]) {
       naoTem++
     }
   }
@@ -80,13 +82,12 @@ letraDigitada.addEventListener('keyup', () => {
 
   if(certas == palavraSecreta.length){
     mensagem.innerHTML = 'VOCÊ ACERTOU!'
+    cabeca.innerHTML = '&#128526;'
     console.log('acertou')
   }
 
-
   if(erro >= 6) {
-    mensagem.innerHTML = 'VOCÊ PERDEU!'
-    inicio()
+    mensagem.innerHTML = `VOCÊ PERDEU!<br /> A palavra era: ${palavraSecreta.toUpperCase()}`
   }
 
   switch(erro) {
@@ -95,18 +96,34 @@ letraDigitada.addEventListener('keyup', () => {
       break
     case 2:
       tronco.style.display = 'block'
+      cabeca.innerHTML = '&#128552;'
       break
     case 3:
       bracoEsq.style.display = 'block'
+      cabeca.innerHTML = '&#128531;'
       break
     case 4:
       bracoDir.style.display = 'block'
+      cabeca.innerHTML = '&#128560;'
       break
     case 5:
       pernaEsq.style.display = 'block'
+      cabeca.innerHTML = '&#128532;'
       break
     case 6:
       pernaDir.style.display = 'block'
+      cabeca.innerHTML = '&#128534'
       break
   }
 })
+
+/* emojis
+&#128517; sorriso de alivio
+&#128521; piscada
+128531 suando frio
+128552 com medo
+128560 suando frio boca aberta
+128543 preocupado
+128553 cansado
+128526 sorriso com oculos escuros
+*/
