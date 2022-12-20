@@ -39,42 +39,52 @@ body{
   height: 30px;
 }
 
+.poste{
+  position: relative;
+}
+
 #corpo{
   width: 160px;
   display: flex;
   flex-direction: column;
   align-items: center;
+  position: relative;
+  z-index: 1;
 }
 
 #cabeca{
   font-size: 4.5rem;
+  position: relative;
+  bottom: 300px;
+  left: 82px;
 }
 
 #tronco{
   position: relative;
-  bottom: 5px;
+  bottom: 305px;
+  left: 82px;
 }
 
 #bracoEsq{
   position: relative;
-  bottom: 88px;
-  right: 38px;
+  bottom: 393px;
+  left: 50px;
 }
 
 #bracoDir{
   position: relative;
-  bottom: 130px;
-  left: 38px;
+  bottom: 436px;
+  left: 110px;
 }
 
 #pernaEsq{
   position: relative;
-  bottom: 94px;
-  right: 23px;
+  bottom: 400px;
+  left: 61px;
 }
 
 #pernaDir{
   position: relative;
-  bottom: 152px;
-  left: 23px;
+  bottom: 455px;
+  left: 105px;
 }
