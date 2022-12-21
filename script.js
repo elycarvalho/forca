@@ -2,6 +2,14 @@ let tracos = document.getElementById('tracos')
 let mensagem = document.querySelector('.mensagem')
 let letrasDigitadas = []
 const digitadas = document.querySelector('.digitadas')
+const btnComecar = document.querySelector('.btn-comecar')
+const btnRecomecar = document.querySelector('.btn-recomecar')
+const telaInicial = document.querySelector('.tela-inicial')
+const telaFinal = document.querySelector('.tela-final')
+const mensagemFinal = document.querySelector('.mensagem-final')
+const todasDigitadas = document.querySelector('.todas-digitadas')
+const palavra = document.querySelector('.palavra')
+
 let palavras = [
   'casamento', 'churrasco', 'onibus', 'familia',
   'floricultura', 'marceneiro', 'mosquito', 'abelha',
@@ -21,6 +29,10 @@ let palavras = [
   'equipe', 'novato', 'certeza', 'humor', 'costela'
 ]
 
+btnComecar.addEventListener('click', () => {
+  telaInicial.style.display = 'none'
+})
+
 let palavraSecreta
 const letraDigitada = document.getElementById('letra')
 let i = 0
@@ -38,6 +50,7 @@ function inicio() {
   tracos.innerHTML = letras.join(' ')
   letraDigitada.focus()
   console.log(palavraSecreta)
+
 }
 
 inicio()
@@ -81,13 +94,20 @@ letraDigitada.addEventListener('keyup', () => {
   console.log(erro)
 
   if(certas == palavraSecreta.length){
-    mensagem.innerHTML = 'VOCÊ ACERTOU!'
+    telaFinal.style.display = 'flex'
+    palavra.innerHTML = `A palavra era: ${palavraSecreta}`
+    mensagemFinal.innerHTML = 'VOCÊ ACERTOU!'
+    todasDigitadas.innerHTML = `Letras que você digitou: ${letrasDigitadas.join(' ')}`
     cabeca.innerHTML = '&#128526;'
     console.log('acertou')
   }
 
   if(erro >= 6) {
-    mensagem.innerHTML = `VOCÊ PERDEU!<br /> A palavra era: ${palavraSecreta.toUpperCase()}`
+    telaFinal.style.display = 'flex'
+    palavra.innerHTML = `A palavra era: ${palavraSecreta}`
+    mensagemFinal.innerHTML = 'VOCÊ PERDEU!'
+    todasDigitadas.innerHTML = `Letras que você digitou: ${letrasDigitadas.join(' ')}`
+
   }
 
   switch(erro) {
@@ -117,13 +137,20 @@ letraDigitada.addEventListener('keyup', () => {
   }
 })
 
-/* emojis
-&#128517; sorriso de alivio
-&#128521; piscada
-128531 suando frio
-128552 com medo
-128560 suando frio boca aberta
-128543 preocupado
-128553 cansado
-128526 sorriso com oculos escuros
-*/
+btnRecomecar.addEventListener('click', () => {
+  telaFinal.style.display = 'none'
+  numAleatorio = Math.trunc(Math.random() * palavras.length)
+  palavraSecreta = palavras[numAleatorio]
+
+  letras = ''
+  traços = ''
+  for (let y = 0; y < palavraSecreta.length; y++) {
+  letras.unshift(' _')
+  }
+
+  tracos.innerHTML = letras.join(' ')
+  letraDigitada.focus()
+
+
+})
+

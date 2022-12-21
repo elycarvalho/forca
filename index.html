@@ -12,16 +12,19 @@
 <body>
   <div class="tela-inicial">
     <h2>JOGO DA FORCA (HANGMAN)</h2>
+    <img src="img/hangman-inicio.png" width="200">
     <p>
       Digite uma letra e tente advinhar qual a palavra!
     </p>
-    <button class="btn-começar">COMEÇAR</button>
+    <button class="btn-comecar">COMEÇAR</button>
   </div>
 
   <div class="container">
     <div class="mensagem"></div>
     <div id="tracos"></div>
+    <h3>Digite uma letra:</h3>
     <input type="text" id="letra" maxlength="1">
+    <h3>Letras digitadas:</h3>
     <div class="digitadas"></div>
     
     <div id="corpo">
@@ -57,9 +60,10 @@
 
   <div class="tela-final">
     <p class="mensagem-final"></p>
-    <p class="todas-digitadas"></p>
     <p class="palavra"></p>
-
+    <p class="todas-digitadas"></p>
+    <button class="btn-recomecar">Jogar novamente</button>
+  </div>
 </body>
 
 </html>
