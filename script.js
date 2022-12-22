@@ -1,6 +1,5 @@
 let tracos = document.getElementById('tracos')
 let mensagem = document.querySelector('.mensagem')
-let letrasDigitadas = []
 const digitadas = document.querySelector('.digitadas')
 const btnComecar = document.querySelector('.btn-comecar')
 const btnRecomecar = document.querySelector('.btn-recomecar')
@@ -9,7 +8,8 @@ const telaFinal = document.querySelector('.tela-final')
 const mensagemFinal = document.querySelector('.mensagem-final')
 const todasDigitadas = document.querySelector('.todas-digitadas')
 const palavra = document.querySelector('.palavra')
-
+const letraDigitada = document.getElementById('letra')
+let letrasDigitadas = []
 let palavras = [
   'casamento', 'churrasco', 'onibus', 'familia',
   'floricultura', 'marceneiro', 'mosquito', 'abelha',
@@ -28,19 +28,17 @@ let palavras = [
   'xampu', 'irritado', 'mentiroso', 'desodorante', 'supermercado',
   'equipe', 'novato', 'certeza', 'humor', 'costela'
 ]
+let palavraSecreta
+let letras = []
+//let i = 0
 
 btnComecar.addEventListener('click', () => {
   telaInicial.style.display = 'none'
+  inicio()
 })
-
-let palavraSecreta
-const letraDigitada = document.getElementById('letra')
-let i = 0
-let letras = []
 
 function inicio() {
   let numAleatorio = Math.trunc(Math.random() * palavras.length)  
-
   palavraSecreta = palavras[numAleatorio]
 
   for (let y = 0; y < palavraSecreta.length; y++) {
@@ -50,10 +48,7 @@ function inicio() {
   tracos.innerHTML = letras.join(' ')
   letraDigitada.focus()
   console.log(palavraSecreta)
-
 }
-
-inicio()
 
 let tem = 0
 let naoTem = 0
@@ -104,9 +99,9 @@ letraDigitada.addEventListener('keyup', () => {
 
   if(erro >= 6) {
     telaFinal.style.display = 'flex'
-    palavra.innerHTML = `A palavra era: ${palavraSecreta}`
+    palavra.innerHTML = `A palavra era: <strong>${palavraSecreta}</strong>`
     mensagemFinal.innerHTML = 'VOCÊ PERDEU!'
-    todasDigitadas.innerHTML = `Letras que você digitou: ${letrasDigitadas.join(' ')}`
+    todasDigitadas.innerHTML = `Letras que você digitou: ${letrasDigitadas.join(' - ')}`
 
   }
 
@@ -141,16 +136,25 @@ btnRecomecar.addEventListener('click', () => {
   telaFinal.style.display = 'none'
   numAleatorio = Math.trunc(Math.random() * palavras.length)
   palavraSecreta = palavras[numAleatorio]
+  letrasDigitadas = []
+  digitadas.innerHTML = ''
+  letras = []
+  certas = 0
+  erro = 0
 
-  letras = ''
-  traços = ''
   for (let y = 0; y < palavraSecreta.length; y++) {
   letras.unshift(' _')
   }
 
+  cabeca.style.display = 'none'
+  tronco.style.display = 'none'
+  bracoEsq.style.display = 'none'
+  bracoDir.style.display = 'none'
+  pernaEsq.style.display = 'none'
+  pernaDir.style.display = 'none'
+
   tracos.innerHTML = letras.join(' ')
   letraDigitada.focus()
-
 
 })
 
