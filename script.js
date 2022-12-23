@@ -9,6 +9,7 @@ const mensagemFinal = document.querySelector('.mensagem-final')
 const todasDigitadas = document.querySelector('.todas-digitadas')
 const palavra = document.querySelector('.palavra')
 const letraDigitada = document.getElementById('letra')
+const dicaPalavra = document.querySelector('.dica')
 let letrasDigitadas = []
 let palavras = [
   'casamento', 'churrasco', 'onibus', 'familia',
@@ -90,14 +91,14 @@ letraDigitada.addEventListener('keyup', () => {
 
   if(certas == palavraSecreta.length){
     telaFinal.style.display = 'flex'
-    palavra.innerHTML = `A palavra era: ${palavraSecreta}`
+    palavra.innerHTML = `<h3>A palavra era: <strong>${palavraSecreta}</strong></h3>`
     mensagemFinal.innerHTML = 'VOCÊ ACERTOU!'
     todasDigitadas.innerHTML = `Letras que você digitou: ${letrasDigitadas.join(' ')}`
     cabeca.innerHTML = '&#128526;'
     console.log('acertou')
   }
 
-  if(erro >= 6) {
+  if(erro >= 7) {
     telaFinal.style.display = 'flex'
     palavra.innerHTML = `A palavra era: <strong>${palavraSecreta}</strong>`
     mensagemFinal.innerHTML = 'VOCÊ PERDEU!'
@@ -124,16 +125,25 @@ letraDigitada.addEventListener('keyup', () => {
     case 5:
       pernaEsq.style.display = 'block'
       cabeca.innerHTML = '&#128532;'
+      
       break
     case 6:
       pernaDir.style.display = 'block'
       cabeca.innerHTML = '&#128534'
+      geraDica()
       break
   }
 })
 
+function geraDica() {
+  let dica = palavraSecreta.slice(0, 5)
+  dicaPalavra.style.display = 'block'
+  dicaPalavra.innerHTML = 'Dica: ' + dica + ' *'
+}
+
 btnRecomecar.addEventListener('click', () => {
   telaFinal.style.display = 'none'
+  dicaPalavra.style.display = 'none'
   numAleatorio = Math.trunc(Math.random() * palavras.length)
   palavraSecreta = palavras[numAleatorio]
   letrasDigitadas = []
@@ -155,6 +165,5 @@ btnRecomecar.addEventListener('click', () => {
 
   tracos.innerHTML = letras.join(' ')
   letraDigitada.focus()
-
 })
 

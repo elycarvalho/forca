@@ -20,7 +20,7 @@ body{
   justify-content: space-evenly;
   position: absolute;
   z-index: 2;
-  top: 35px;
+  top: 30px;
   left: 5%;
   background-color: #F5FCA0;
   border: 2px solid #DC9426;
@@ -29,14 +29,14 @@ body{
 
 .tela-final{
   width: 90%;
-  height: 550px;
+  height: 570px;
   display: none;
   flex-direction: column;
   align-items: center;
   justify-content: space-evenly;
   position: absolute;
   z-index: 2;
-  top: 35px;
+  top: 30px;
   left: 5%;
   background-color: #EDEDD6;
   border: 2px solid #FC5100;
@@ -44,7 +44,7 @@ body{
 }
 
 .container{
-  margin-top: 30px;
+  margin-top: 20px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -69,8 +69,8 @@ body{
 }
 
 .digitadas{
-  width: 200px;
-  height: 30px;
+  width: 245px;
+  height: 37px;
   border: 1px solid darkgreen;
   background-color: #fff;
   text-align: center;
@@ -135,8 +135,26 @@ body{
 }
 
 .btn-recomecar{
-  width: 90px;
-  height: 40px;
+  font-weight: bold;
+  font-size: 1.1rem;
+  width: 110px;
+  height: 48px;
   background-color: lightblue;
   border-radius: 5px;
+}
+
+.mensagem-final{
+  font-weight: bold;
+  font-size: 1.4rem;
+}
+
+.dica{
+  padding: 5px;
+  position: relative;
+  bottom: 45px;
+  left: 80px;
+  display: none;
+  font-weight: bold;
+  border: 2px solid red;
+  background-color: yellow;
 }
