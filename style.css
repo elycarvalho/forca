@@ -12,6 +12,7 @@ body{
 }
 
 .tela-inicial{
+  text-align: center;
   width: 90%;
   height: 550px;
   display: flex;
