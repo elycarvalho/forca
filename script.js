@@ -27,11 +27,12 @@ let palavras = [
   'cadeira', 'sofrimento', 'sorriso', 'gargalhada', 'palhaço',
   'garrafa', 'óculos', 'cabelo', 'travesseiro', 'episodio', 'arroto',
   'xampu', 'irritado', 'mentiroso', 'desodorante', 'supermercado',
-  'equipe', 'novato', 'certeza', 'humor', 'costela'
+  'equipe', 'novato', 'certeza', 'humor', 'costela', 'ventilador',
+  'celular', 'caneta', 'geladeira', 'piscina', 'bateria', 'bombeiro', 'banana',
+  'carregador', 'mensagem', 'emoji', 'escola', 'caderno', 'empada', 'churrasqueira'
 ]
 let palavraSecreta
 let letras = []
-//let i = 0
 
 btnComecar.addEventListener('click', () => {
   telaInicial.style.display = 'none'
@@ -91,7 +92,7 @@ letraDigitada.addEventListener('keyup', () => {
 
   if(certas == palavraSecreta.length){
     telaFinal.style.display = 'flex'
-    palavra.innerHTML = `<h3>A palavra era: <strong>${palavraSecreta}</strong></h3>`
+    palavra.innerHTML = `A palavra era: <strong>${palavraSecreta}</strong>`
     mensagemFinal.innerHTML = 'VOCÊ ACERTOU!'
     todasDigitadas.innerHTML = `Letras que você digitou: ${letrasDigitadas.join(' ')}`
     cabeca.innerHTML = '&#128526;'
@@ -137,6 +138,9 @@ letraDigitada.addEventListener('keyup', () => {
 
 function geraDica() {
   let dica = palavraSecreta.slice(0, 5)
+  if(palavraSecreta.length < 7) {
+    dica = palavraSecreta.slice(0, 4)
+  }
   dicaPalavra.style.display = 'block'
   dicaPalavra.innerHTML = 'Dica: ' + dica + ' *'
 }

@@ -44,6 +44,10 @@ body{
   border-radius: 10px;
 }
 
+.palavra{
+  font-size: 1.8rem;
+}
+
 .container{
   margin-top: 20px;
   display: flex;
@@ -91,7 +95,7 @@ body{
 }
 
 #cabeca{
-  font-size: 4.5rem;
+  font-size: 4.6rem;
   position: relative;
   bottom: 300px;
   left: 82px;
