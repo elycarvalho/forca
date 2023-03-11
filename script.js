@@ -29,7 +29,8 @@ let palavras = [
   'xampu', 'irritado', 'mentiroso', 'desodorante', 'supermercado',
   'equipe', 'novato', 'certeza', 'humor', 'costela', 'ventilador',
   'celular', 'caneta', 'geladeira', 'piscina', 'bateria', 'bombeiro', 'banana',
-  'carregador', 'mensagem', 'emoji', 'escola', 'caderno', 'empada', 'churrasqueira'
+  'carregador', 'mensagem', 'emoji', 'escola', 'caderno', 'empada', 'churrasqueira',
+  'teclado', 'explodir', 'submarino'
 ]
 let palavraSecreta
 let letras = []
