@@ -7,7 +7,7 @@
 body{
   height: 100vh;
   font-family: Helvetica, arial, sans-serif;
- background-image: linear-gradient(#FFC6AC, #DCFFAC);
+ background-image: linear-gradient(#65A2FA, #8688F9);
   background-repeat: no-repeat;
 }
 
@@ -132,6 +132,7 @@ body{
 }
 
 .btn-comecar{
+  margin-top: 15px;
   font-weight: bold;
   width: 90px;
   height: 35px;

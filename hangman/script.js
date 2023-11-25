@@ -7,31 +7,46 @@ const telaInicial = document.querySelector('.tela-inicial')
 const telaFinal = document.querySelector('.tela-final')
 const mensagemFinal = document.querySelector('.mensagem-final')
 const todasDigitadas = document.querySelector('.todas-digitadas')
+const level = document.querySelector('.level')
 const palavra = document.querySelector('.palavra')
 const letraDigitada = document.getElementById('letra')
 const dicaPalavra = document.querySelector('.dica')
 let letrasDigitadas = []
-let palavras = [
-  'memory', 'processor', 'developer', 'language',
-  'flower', '', 'mosquito', 'listen',
-  'headache', 'technology', 'system', 'network',
-  'android', 'keyboard', 'coffee', 'document',
-  'giraffe', 'cafezal', 'streaming', 'alligator',
-  'palace', 'commerce', 'mistery', 'engineer',
-  'software', 'project', 'comment', 'selection',
-  'hamburguer', 'building', 'watermelon', 'democracy',
-  'equality', 'difference', 'sandwich', 'salad', 'header',
-  'calendar', 'manager', 'storm', 'lightning',
-  'business', 'spaceship', 'river', 'brazilian', 'country',
-  'finger', 'skeleton', 'forest', 'support', 'customer',
-  'computer', 'suffering', 'smile', 'password', 'forward',
-  'liquid', 'glasses', 'painting', 'pillow', 'episode', 'employee',
-  'shampoo', 'outdoor', 'indoor', 'deodorant', 'supermarket',
-  'equipe', 'internship', 'certainty', 'humor', 'chicken', 'machine',
-  'cellphone', 'pencil', 'refrigerator', 'navigation', 'battery', 'fireman', 'avocado',
-  'charger', 'message', 'emoji', 'college', 'notebook', 'control', 'player',
-  'weather', 'cooler', 'submarine', 'package', 'delete', 'window'
+
+const easy = [
+  'water','yellow','happy','morning','evening','night','family','milk',
+  'window','mother','father','sister','apple','lemon','orange','flower',
+  'english','crush','shopping','brother','table','tablet','color','delete',
+  'light','coffee','drink','speak','body','green','school','space','book',
+  'money','mouse','ocean','house','play','record','where','want','need',
+  'film','walk','stand','card','bank','welcome','thanks','food','lunch',
+  'pencil','paper','correct','copy','october','november','sunday','bike','like',
+  'child','woman','seven','goodbye'
 ]
+
+const normal = [
+  'without','memory','language','headache','keyboard','support',
+  'palace', 'commerce', 'mistery', 'engineer','building','country',
+  'system','refrigerator', 'navigation', 'battery', 'fireman',
+  'shampoo', 'outdoor', 'indoor', 'supermarket','android', 'coffee',
+  'calendar', 'manager', 'storm','lightning','skeleton', 'forest', 
+  'customer','charger', 'message','computer', 'smile', 'password', 'forward',
+  'supermarket','romance','business','satisfy','reality','reload','something',
+  'anything','function','dictionary','restroom','toilet','store','bottle','flight'
+]
+
+const hard = [
+  'comprehension','technology','compilation','fascination','aprehensive',
+  'synonym','delusion','internship','employee','constitution','meaningful',
+  'development','environment','pollution','deodorant','suffering','certainty','retaliation',
+  'requirement','ceiling','impeachment','disregard','recklessness','purposely',
+  'deployment','inheritance','flawless','fulfill','achieve','archeologist','commute',
+  'departure'
+]
+
+let palavras = []
+
+
 let palavraSecreta
 let letras = []
 
@@ -40,7 +55,18 @@ btnComecar.addEventListener('click', () => {
   inicio()
 })
 
+  
 function inicio() {
+  switch(level.value) {
+    case 'easy':
+      palavras = easy
+      break
+    case 'normal':
+      palavras = normal
+      break
+    case 'hard':
+      palavras = hard
+  }
   let numAleatorio = Math.trunc(Math.random() * palavras.length)  
   palavraSecreta = palavras[numAleatorio]
 
