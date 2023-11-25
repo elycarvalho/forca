@@ -21,7 +21,8 @@ const easy = [
   'money','mouse','ocean','house','play','record','where','want','need',
   'film','walk','stand','card','bank','welcome','thanks','food','lunch',
   'pencil','paper','correct','copy','october','november','sunday','bike','like',
-  'child','woman','seven','goodbye'
+  'child','woman','seven','goodbye','fire','number','band','music','rock','stone',
+  'hospital'
 ]
 
 const normal = [
@@ -32,7 +33,9 @@ const normal = [
   'calendar', 'manager', 'storm','lightning','skeleton', 'forest', 
   'customer','charger', 'message','computer', 'smile', 'password', 'forward',
   'supermarket','romance','business','satisfy','reality','reload','something',
-  'anything','function','dictionary','restroom','toilet','store','bottle','flight'
+  'anything','function','dictionary','restroom','toilet','store','bottle','flight',
+  'halloween','thunder','cellphone','object','default','display','garbage','hand',
+  'package','brand'
 ]
 
 const hard = [
@@ -41,11 +44,10 @@ const hard = [
   'development','environment','pollution','deodorant','suffering','certainty','retaliation',
   'requirement','ceiling','impeachment','disregard','recklessness','purposely',
   'deployment','inheritance','flawless','fulfill','achieve','archeologist','commute',
-  'departure'
+  'departure','unemployment','hypothesis','management','alcoholic'
 ]
 
 let palavras = []
-
 
 let palavraSecreta
 let letras = []
@@ -54,8 +56,7 @@ btnComecar.addEventListener('click', () => {
   telaInicial.style.display = 'none'
   inicio()
 })
-
-  
+ 
 function inicio() {
   switch(level.value) {
     case 'easy':
@@ -76,7 +77,6 @@ function inicio() {
 
   tracos.innerHTML = letras.join(' ')
   letraDigitada.focus()
-  console.log(palavraSecreta)
 }
 
 let tem = 0
@@ -104,10 +104,6 @@ letraDigitada.addEventListener('keyup', () => {
     }
   }
     
-    console.log('tem ' + tem)
-    console.log('nao tem ' + naoTem)
-    console.log('certas ' + certas)
-  
   letraDigitada.focus()
   letraDigitada.value = ''
 
@@ -115,15 +111,12 @@ letraDigitada.addEventListener('keyup', () => {
     erro++
   }
 
-  console.log(erro)
-
   if(certas == palavraSecreta.length){
     telaFinal.style.display = 'flex'
     palavra.innerHTML = `The secret word was: <strong>${palavraSecreta}</strong>`
     mensagemFinal.innerHTML = 'YOU MADE IT!'
     todasDigitadas.innerHTML = `Letters you typed: ${letrasDigitadas.join(' ')}`
     cabeca.innerHTML = '&#128526;'
-
   }
 
   if(erro >= 7) {
@@ -131,7 +124,6 @@ letraDigitada.addEventListener('keyup', () => {
     palavra.innerHTML = `The secret word was: <strong>${palavraSecreta}</strong>`
     mensagemFinal.innerHTML = 'YOU LOSE!'
     todasDigitadas.innerHTML = `Letter you typed: ${letrasDigitadas.join(' - ')}`
-
   }
 
   switch(erro) {
@@ -153,7 +145,6 @@ letraDigitada.addEventListener('keyup', () => {
     case 5:
       pernaEsq.style.display = 'block'
       cabeca.innerHTML = '&#128532;'
-      
       break
     case 6:
       pernaDir.style.display = 'block'
