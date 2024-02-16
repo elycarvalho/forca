@@ -30,7 +30,7 @@ let palavras = [
   'equipe', 'novato', 'certeza', 'humor', 'costela', 'ventilador',
   'celular', 'caneta', 'geladeira', 'piscina', 'bateria', 'bombeiro', 'banana',
   'carregador', 'mensagem', 'emoji', 'escola', 'caderno', 'empada', 'churrasqueira',
-  'teclado', 'explodir', 'submarino'
+  'teclado', 'explodir', 'submarino','eletricidade','internet','armazenamento'
 ]
 let palavraSecreta
 let letras = []
