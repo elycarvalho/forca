@@ -155,9 +155,9 @@ letraDigitada.addEventListener('keyup', () => {
 })
 
 function geraDica() {
-  let dica = palavraSecreta.slice(0, 5)
+  let dica = palavraSecreta.slice(0, 4)
   if(palavraSecreta.length < 7) {
-    dica = palavraSecreta.slice(0, 4)
+    dica = palavraSecreta.slice(0, 3)
   }
   dicaPalavra.style.display = 'block'
   dicaPalavra.innerHTML = 'Dica: ' + dica + ' *'
