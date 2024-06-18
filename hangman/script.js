@@ -1,5 +1,4 @@
 let tracos = document.getElementById('tracos')
-let mensagem = document.querySelector('.mensagem')
 const digitadas = document.querySelector('.digitadas')
 const btnComecar = document.querySelector('.btn-comecar')
 const btnRecomecar = document.querySelector('.btn-recomecar')
@@ -87,7 +86,18 @@ let letra
 
 letraDigitada.addEventListener('keyup', () => { 
   letra = letraDigitada.value.toLowerCase()
-  letrasDigitadas.push(letra.toUpperCase())
+   //verifica a letra ja foi digitada
+  for (let i = 0; i <= letrasDigitadas.length; i++) {
+    if(letra.toUpperCase() == letrasDigitadas[i]){
+      alert('This letter was typed already! Try another letter.')
+      letra = ''
+      letraDigitada.focus()
+      erro-- 
+    }
+  }
+
+  if(letra != ''){letrasDigitadas.push(letra.toUpperCase())}
+ 
   digitadas.innerHTML = letrasDigitadas.join(' - ') 
   tem = 0
   naoTem = 0
@@ -113,15 +123,15 @@ letraDigitada.addEventListener('keyup', () => {
 
   if(certas == palavraSecreta.length){
     telaFinal.style.display = 'flex'
-    palavra.innerHTML = `The secret word was: <strong>${palavraSecreta}</strong>`
+    palavra.innerHTML = `The word was: <strong>${palavraSecreta}</strong>`
     mensagemFinal.innerHTML = 'YOU MADE IT!'
-    todasDigitadas.innerHTML = `Letters you typed: ${letrasDigitadas.join(' ')}`
+    todasDigitadas.innerHTML = `Letters you typed: ${letrasDigitadas.join(' - ')}`
     cabeca.innerHTML = '&#128526;'
   }
 
   if(erro >= 7) {
     telaFinal.style.display = 'flex'
-    palavra.innerHTML = `The secret word was: <strong>${palavraSecreta}</strong>`
+    palavra.innerHTML = `The word was: <strong>${palavraSecreta}</strong>`
     mensagemFinal.innerHTML = 'YOU LOSE!'
     todasDigitadas.innerHTML = `Letter you typed: ${letrasDigitadas.join(' - ')}`
   }
@@ -153,6 +163,11 @@ letraDigitada.addEventListener('keyup', () => {
       break
   }
 })
+
+
+function verificaRepetida(){
+
+}
 
 function geraDica() {
   let dica = palavraSecreta.slice(0, 4)
