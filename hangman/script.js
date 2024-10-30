@@ -90,7 +90,13 @@ let erro = 0
 let certas = 0
 let letra 
 
-letraDigitada.addEventListener('keyup', () => { 
+letraDigitada.addEventListener('keyup', (e) => { 
+  if(e.keyCode > 41 && e.keyCode < 60){
+    alert('type only letters')
+    letraDigitada.value = ''
+    erro--
+  }
+
   letra = letraDigitada.value.toLowerCase()
    //verifica se a letra ja foi digitada
   for (let i = 0; i <= letrasDigitadas.length; i++) {
@@ -101,7 +107,7 @@ letraDigitada.addEventListener('keyup', () => {
       erro-- 
     }
   }
-
+  
   if(letra != ''){letrasDigitadas.push(letra.toUpperCase())}
  
   digitadas.innerHTML = letrasDigitadas.join(' - ') 
