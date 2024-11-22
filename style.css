@@ -7,7 +7,7 @@
 body{
   height: 100vh;
   font-family: Helvetica, arial, sans-serif;
- background-image: linear-gradient(#FFC6AC, #DCFFAC);
+ background-image: linear-gradient(#8AB8FB, #BBBCF8);
   background-repeat: no-repeat;
 }
 
@@ -21,11 +21,21 @@ body{
   justify-content: space-evenly;
   position: absolute;
   z-index: 2;
-  top: 30px;
+  top: 20px;
   left: 5%;
   background-color: #F5FCA0;
   border: 2px solid #DC9426;
   border-radius: 10px;
+}
+
+.level-container{
+  width: 200px;
+}
+
+.level{
+  font-size: 1.2rem;
+  width: 90%;
+  text-align: center;
 }
 
 .tela-final{
@@ -37,7 +47,7 @@ body{
   justify-content: space-evenly;
   position: absolute;
   z-index: 2;
-  top: 30px;
+  top: 20px;
   left: 5%;
   background-color: #EDEDD6;
   border: 2px solid #FC5100;
@@ -49,7 +59,7 @@ body{
 }
 
 .container{
-  margin-top: 20px;
+  margin-top: 15px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -57,9 +67,9 @@ body{
 
 #tracos{
   border: 2px solid darkblue;
-  padding: 8px;
-  font-size: 2rem;
-  margin: 10px;
+  padding: 5px;
+  font-size: 1.8rem;
+  margin: 5px;
   background-color: #D7F7FF;
 }
 
@@ -75,18 +85,28 @@ body{
 
 .digitadas{
   width: 245px;
-  height: 37px;
+  height: 22px;
+  padding-top: 2px;
   border: 1px solid darkgreen;
   background-color: #fff;
   text-align: center;
+  font-size: 0.8rem;
+}
+
+.erros{
+  margin-top: 5px;
 }
 
 .poste{
   position: relative;
 }
 
-#corpo{
+.poste img{
   width: 160px;
+}
+
+#corpo{
+  width: 180px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -94,46 +114,51 @@ body{
   z-index: 1;
 }
 
+.partes img{
+  width: 50%;
+}
+
 #cabeca{
-  font-size: 4.6rem;
+  font-size: 2rem;
   position: relative;
-  bottom: 300px;
-  left: 82px;
+  bottom: 132px;
+  left: 36px;
 }
 
 #tronco{
   position: relative;
-  bottom: 305px;
-  left: 82px;
+  bottom: 135px;
+  left: 39px;
 }
 
 #bracoEsq{
   position: relative;
-  bottom: 393px;
-  left: 50px;
+  bottom: 190px;
+  left: 35px;
 }
 
 #bracoDir{
   position: relative;
-  bottom: 436px;
-  left: 110px;
+  bottom: 213px;
+  left: 65px;
 }
 
 #pernaEsq{
   position: relative;
-  bottom: 400px;
-  left: 61px;
+  bottom: 185px;
+  left: 35px;
 }
 
 #pernaDir{
   position: relative;
-  bottom: 455px;
-  left: 105px;
+  bottom: 216px;
+  left: 58px;
 }
 
 .btn-comecar{
+  margin-top: 15px;
   font-weight: bold;
-  width: 90px;
+  width: 180px;
   height: 35px;
   background-color: darkorange;
   border-radius: 5px;
@@ -156,8 +181,8 @@ body{
 .dica{
   padding: 5px;
   position: relative;
-  bottom: 45px;
-  left: 80px;
+  bottom: 6px;
+  right: 5px;
   display: none;
   font-weight: bold;
   border: 2px solid red;

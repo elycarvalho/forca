@@ -4,30 +4,37 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Forca</title>
+  <title>Jogo da forca</title>
   <link rel="stylesheet" type="text/css" href="style.css">
   <script src="script.js" defer></script>
 </head>
 
 <body>
   <div class="tela-inicial">
-    <h2>JOGO DA FORCA (HANGMAN)</h2>
+    <h2>JOGO DA FORCA</h2>
     <img src="img/hangman-inicio.png" width="200">
-    <p>
-      <h3>Digite uma letra e tente advinhar qual a palavra!<h3>
-    </p>
+    <h3>Selecione um nível e clique em começar<h3>
+
+    <div class="level-container">
+      <select class="level">
+        <option value="easy">FÁCIL</option>
+        <option value="normal">NORMAL</option>
+        <option value="hard">DIFÍCIL</option>
+      </select>
+    </div>
     <button class="btn-comecar">COMEÇAR</button>
   </div>
 
   <div class="container">
-    <div class="mensagem"></div>
     <div id="tracos"></div>
     <h3>Digite uma letra:</h3>
     <input type="text" id="letra" maxlength="1">
     <div class="dica"></div>
-    <h3>Letras digitadas:</h3>
+    <h4>Letras que você digitou:</h4>
     <div class="digitadas"></div>
-    
+    <div class="erros">
+      <h4>Erros:&nbsp;<span class="mostra-erros"></span></h4>  
+    </div>
     <div id="corpo">
       <div class="poste">
         <img src="img/poste.png">
@@ -37,23 +44,23 @@
         &#128543;
       </div>
 
-      <div id="tronco" style="display:none">
+      <div id="tronco" style="display:none" class="partes">
         <img src="./img/tronco.png">
       </div>
 
-      <div id="bracoEsq" style="display:none">
+      <div id="bracoEsq" style="display:none" class="partes">
         <img src="./img/braco_esq.png">
       </div>
 
-      <div id="bracoDir" style="display:none">
+      <div id="bracoDir" style="display:none" class="partes">
         <img src="./img/braco_dir.png">
       </div>
 
-      <div id="pernaEsq" style="display:none">
+      <div id="pernaEsq" style="display:none" class="partes">
         <img src="./img/perna_esq.png">
       </div>
 
-      <div id="pernaDir" style="display:none">
+      <div id="pernaDir" style="display:none" class="partes">
         <img src="./img/perna_dir.png">
       </div>
     </div>    
@@ -61,9 +68,10 @@
 
   <div class="tela-final">
     <h3 class="mensagem-final"></h3>
+    <h2 class="mostra-pontuacao"></h2>
     <p class="palavra"></p>
     <p class="todas-digitadas"></p>
-    <button class="btn-recomecar">Jogar novamente</button>
+    <button class="btn-recomecar">Jogar de novo</button>
   </div>
 </body>
 

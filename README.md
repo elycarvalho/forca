@@ -1,3 +1,3 @@
-# Jogo de forca 
-Jogo de forca, onde o jogador precisa ir digitando letras e tentar advinhar a palavra secreta.
-Feito usando Html, Css e javascript.
+# Hangman
+A hangman game where you must type letters and try to guess the secret word.
+
