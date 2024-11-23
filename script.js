@@ -93,7 +93,7 @@ let certas = 0
 let letra 
 
 letraDigitada.addEventListener('keyup', (e) => { 
-  if(e.keyCode < 97 || e.keyCode > 122){
+  if(e.keyCode < 65 || e.keyCode > 122){
     alert('digite apenas letras')
     letraDigitada.value = ''
     erro--
