@@ -13,7 +13,7 @@ body{
 
 .tela-inicial{
   text-align: center;
-  width: 90%;
+  width: 80%;
   height: 550px;
   display: flex;
   flex-direction: column;
@@ -22,10 +22,12 @@ body{
   position: absolute;
   z-index: 2;
   top: 20px;
-  left: 5%;
-  background-color: #F5FCA0;
-  border: 2px solid #DC9426;
+  left: 10%;
+  /*background-color: #F5FCA0;*/
+  background-image: radial-gradient(#F5FCA0, #f5e467);
+  /*border: 2px solid #DC9426;*/
   border-radius: 10px;
+  box-shadow: 5px 10px 20px;
 }
 
 .level-container{
@@ -33,9 +35,11 @@ body{
 }
 
 .level{
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   width: 90%;
   text-align: center;
+  border-radius: 5px;
+  height: 1.5rem;
 }
 
 .tela-final{
@@ -49,8 +53,7 @@ body{
   z-index: 2;
   top: 20px;
   left: 5%;
-  background-color: #EDEDD6;
-  border: 2px solid #FC5100;
+  background-image: radial-gradient(#F5FCA0, #e3fb6b);
   border-radius: 10px;
 }
 
@@ -156,7 +159,7 @@ body{
 }
 
 .btn-comecar{
-  margin-top: 15px;
+  margin-top: 20px;
   font-weight: bold;
   width: 180px;
   height: 35px;
