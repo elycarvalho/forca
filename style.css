@@ -23,9 +23,7 @@ body{
   z-index: 2;
   top: 20px;
   left: 10%;
-  /*background-color: #F5FCA0;*/
-  background-image: radial-gradient(#F5FCA0, #f5e467);
-  /*border: 2px solid #DC9426;*/
+  background-image: radial-gradient(#F5FCA0, #e3fb6b);
   border-radius: 10px;
   box-shadow: 5px 10px 20px;
 }
@@ -53,7 +51,7 @@ body{
   z-index: 2;
   top: 20px;
   left: 5%;
-  background-image: radial-gradient(#F5FCA0, #e3fb6b);
+  background-image: radial-gradient(#F5FCA0, #f5e467);
   border-radius: 10px;
 }
 

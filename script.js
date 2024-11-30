@@ -174,7 +174,7 @@ letraDigitada.addEventListener('keyup', (e) => {
     telaFinal.style.display = 'flex'
     palavra.innerHTML = `A palavra era: <strong>${palavraSecreta}</strong>`
     mostraPontuacao.innerHTML = `Pontuação: ${pontuacao}`
-    mensagemFinal.innerHTML = '&#127881; VOCÊ CONSEGUIU! &#127881;'
+    mensagemFinal.innerHTML = 'VOCÊ CONSEGUIU! <img src="./img/clap.gif" width="50">'
     todasDigitadas.innerHTML = `Letras que você digitou: ${letrasDigitadas.join(' - ')}`
     cabeca.innerHTML = '&#128526;'
   }
@@ -182,33 +182,34 @@ letraDigitada.addEventListener('keyup', (e) => {
   if(erro >= 7) {
     telaFinal.style.display = 'flex'
     palavra.innerHTML = `A palavra era: <strong>${palavraSecreta}</strong>`
-    mensagemFinal.innerHTML = 'VOCÊ PERDEU! &#128546;'
+    mensagemFinal.innerHTML = 'VOCÊ PERDEU!  <img src="./img/crying.gif" width="50">'
     todasDigitadas.innerHTML = `Letras que você digitou: ${letrasDigitadas.join(' - ')}`
   }
 
   switch(erro) {
     case 1:
       cabeca.style.display = 'block'
+      cabeca.innerHTML = '<img src="./img/pleading.gif" width="40" style="margin-bottom:-8px">'
       break
     case 2:
       tronco.style.display = 'block'
-      cabeca.innerHTML = '&#128552;'
+      cabeca.innerHTML = '<img src="./img/worried.gif" width="40" style="margin-bottom:-8px">'
       break
     case 3:
       bracoEsq.style.display = 'block'
-      cabeca.innerHTML = '&#128531;'
+      cabeca.innerHTML = '<img src="./img/scared.gif" width="40" style="margin-bottom:-7px">'
       break
     case 4:
       bracoDir.style.display = 'block'
-      cabeca.innerHTML = '&#128560;'
+      cabeca.innerHTML = '<img src="./img/weary.gif" width="40" style="margin-bottom:-7px">'
       break
     case 5:
       pernaEsq.style.display = 'block'
-      cabeca.innerHTML = '&#128532;'
+      cabeca.innerHTML = '<img src="./img/dizzy.gif" width="40" style="margin-bottom:-8px">'
       break
     case 6:
       pernaDir.style.display = 'block'
-      cabeca.innerHTML = '&#128534'
+      cabeca.innerHTML = '<img src="./img/x-eyes.gif" width="40" style="margin-bottom:-8px">'
       geraDica()
       break
   }
