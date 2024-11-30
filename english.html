@@ -5,41 +5,41 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Jogo da forca</title>
-  <link rel="stylesheet" type="text/css" href="style.css">
-  <script src="script.js" defer></script>
+  <link rel="stylesheet" type="text/css" href="english.css">
+  <script src="english.js" defer></script>
 </head>
 
 <body>
   <div class="tela-inicial">
-    <h2>JOGO DA FORCA</h2>
+    <h2>HANGMAN GAME</h2>
     <img src="img/hangman-inicio.png" width="200">
-    <h3>Selecione um nível e clique em começar<h3>
+    <h3>Select a level and click start<h3>
 
     <div class="level-container">
       <select class="level">
-        <option value="easy">FÁCIL</option>
+        <option value="easy">EASY</option>
         <option value="normal">NORMAL</option>
-        <option value="hard">DIFÍCIL</option>
+        <option value="hard">HARD</option>
       </select>
     </div>
-    <button class="btn-comecar">COMEÇAR</button>
-    <a href="english.html">
+    <button class="btn-comecar">START</button>
+    <a href="index.html">
       <div class="idioma">
-        <img src="./img/english.png" width="50">
-        English 
+        <img src="./img/pt.jpg" width="50">
+        Portuguese 
       </div>
     </a>
   </div>
 
   <div class="container">
     <div id="tracos"></div>
-    <h3>Digite uma letra:</h3>
+    <h3>Type a letter:</h3>
     <input type="text" id="letra" maxlength="1">
     <div class="dica"></div>
-    <h4>Letras que você digitou:</h4>
+    <h4>Letters you typed:</h4>
     <div class="digitadas"></div>
     <div class="erros">
-      <h4>Erros:&nbsp;<span class="mostra-erros"></span></h4>  
+      <h4>Mistakes:&nbsp;<span class="mostra-erros"></span></h4>  
     </div>
     <div id="corpo">
       <div class="poste">
@@ -75,7 +75,7 @@
     <h2 class="mostra-pontuacao"></h2>
     <p class="palavra"></p>
     <p class="todas-digitadas"></p>
-    <button class="btn-recomecar">Jogar de novo</button>
+    <button class="btn-recomecar">Play again</button>
   </div>
 </body>
 
