@@ -15,7 +15,7 @@ const mostraPontuacao = document.querySelector('.mostra-pontuacao')
 const alfabeto = 'abcdefghijklmnopqrstuvwxyz'
 let letrasDigitadas = []
 
-const easy_level = [
+const facil = [
   {word:'planta',tip:'caule, folhas, raiz'},{word:'amarelo',tip:'cor de alerta'},{word:'feliz',tip:'contente'},
   {word:'manhã',tip:'antes do almoço'},{word:'anoitecer',tip:'fim da tarde'},  {word:'nublado',tip:'cheio de nuvens'},
   {word:'familia',tip:'parentes'},{word:'leite',tip:'vaca'}, {word:'janela',tip:'cortina'},{word:'mamar',tip:'bebê gosta'},
@@ -42,7 +42,7 @@ const easy_level = [
   {word:'colher',tip:'talher'},{word:'cavalo',tip:'pode montar nele'},{word:'dificil',tip:'não é fácil'}
 ]
 
-const normal_level = [
+const normal = [
   {word:'ausencia',tip:'falta de'},{word:'memoria',tip:'lembrança'},{word:'idioma',tip:'português, inglês, etc'},
   {word:'enxaqueca',tip:'dor de cabeça'},{word:'teclado',tip:'digitar letras'},{word:'suporte',tip:'ajuda, apoio, sustentação'},
   {word:'palacio',tip:"casa do rei"},{word:'comercio',tip:'comprar e vender'},{word:'misterio',tip:'segredo, enigma'},
@@ -69,7 +69,7 @@ const normal_level = [
   {word:'felicidade',tip:'alegria, contentamento'}, {word:'similar',tip:'quase idêntico'},{word:'formidavel',tip:'fantástico, fabuloso, admirável'}
 ]
 
-const hard_level = [
+const dificil = [
   {word:'compreensão',tip:'entendimento'},{word:'vasectomia',tip:'esterilização masculina'}, {word:'sinonimo',tip:'mesmo significado'},
   {word:'desilusao',tip:'perda de esperança'},{word:'estagiario',tip:'faz estagio'},{word:'odontologista',tip:'dentista'},
   {word:'desorganizar',tip:'tirar da ordem'},{word:'agropecuaria',tip:'agricultura'}, {word:'comentarista', tip:'faz comentários'},
@@ -96,13 +96,13 @@ btnComecar.addEventListener('click', () => {
 function inicio() {
   switch(level.value) {
     case 'easy':
-      palavras = easy_level
+      palavras = facil
       break
     case 'normal':
-      palavras = normal_level
+      palavras = normal
       break
     case 'hard':
-      palavras = hard_level
+      palavras = dificil
   }
   let numAleatorio = Math.trunc(Math.random() * palavras.length)  
   palavraSecreta = palavras[numAleatorio].word
@@ -175,7 +175,7 @@ letraDigitada.addEventListener('keyup', (e) => {
     palavra.innerHTML = `A palavra era: <strong>${palavraSecreta}</strong>`
     mostraPontuacao.innerHTML = `Pontuação: ${pontuacao}`
     mensagemFinal.innerHTML = 'VOCÊ CONSEGUIU! <img src="./img/clap.gif" width="50">'
-    todasDigitadas.innerHTML = `Letras que você digitou: ${letrasDigitadas.join(' - ')}`
+    //todasDigitadas.innerHTML = `Letras que você digitou: ${letrasDigitadas.join(' - ')}`
     cabeca.innerHTML = '&#128526;'
   }
 
@@ -183,7 +183,7 @@ letraDigitada.addEventListener('keyup', (e) => {
     telaFinal.style.display = 'flex'
     palavra.innerHTML = `A palavra era: <strong>${palavraSecreta}</strong>`
     mensagemFinal.innerHTML = 'VOCÊ PERDEU!  <img src="./img/crying.gif" width="50">'
-    todasDigitadas.innerHTML = `Letras que você digitou: ${letrasDigitadas.join(' - ')}`
+    //todasDigitadas.innerHTML = `Letras que você digitou: ${letrasDigitadas.join(' - ')}`
   }
 
   switch(erro) {

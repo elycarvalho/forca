@@ -111,7 +111,7 @@ const hard_level = [
   {word:'unemployed',tip:'without a job'}
 ]
 
-let palavras = []
+let words = []
 
 let palavraSecreta
 let dica
@@ -125,17 +125,17 @@ btnComecar.addEventListener('click', () => {
 function inicio() {
   switch(level.value) {
     case 'easy':
-      palavras = easy_level
+      words = easy_level
       break
     case 'normal':
-      palavras = normal_level
+      words = normal_level
       break
     case 'hard':
-      palavras = hard_level
+      words = hard_level
   }
-  let numAleatorio = Math.trunc(Math.random() * palavras.length)  
-  palavraSecreta = palavras[numAleatorio].word
-  dica = palavras[numAleatorio].tip
+  let numAleatorio = Math.trunc(Math.random() * words.length)  
+  palavraSecreta = words[numAleatorio].word
+  dica = words[numAleatorio].tip
 
   for (let y = 0; y < palavraSecreta.length; y++) {
   letras.unshift(' _')
@@ -147,7 +147,7 @@ function inicio() {
 
 let tem = 0
 let naoTem = 0
-let erro = 0
+let mistake = 0
 let certas = 0
 let letra 
 
@@ -158,7 +158,7 @@ letraDigitada.addEventListener('keyup', (e) => {
   if(alfabeto.indexOf(letra) == -1) {
     letraDigitada.value = ''
     letra = ''
-    erro--
+    mistake--
     alert('Type only letters!')
   }
 
@@ -168,7 +168,7 @@ letraDigitada.addEventListener('keyup', (e) => {
       alert('This letter has already been typed.')
       letra = ''
       letraDigitada.focus()
-      erro-- 
+      mistake-- 
     }
   }
   
@@ -194,27 +194,27 @@ letraDigitada.addEventListener('keyup', (e) => {
   letraDigitada.value = ''
 
   if(tem == 0 && naoTem != 0) {
-    erro++
+    mistake++
   }
 
-  let pontuacao = (1000 - Math.round(erro * 142.9))
+  let pontuacao = (1000 - Math.round(mistake * 142.9))
 
   if(certas == palavraSecreta.length){
     telaFinal.style.display = 'flex'
     palavra.innerHTML = `The word was: <strong>${palavraSecreta}</strong>`
     mostraPontuacao.innerHTML = `core: ${pontuacao}`
     mensagemFinal.innerHTML = 'YOU DID IT! <img src="./img/clap.gif" width="50">'
-    todasDigitadas.innerHTML = `Letters you typed: ${letrasDigitadas.join(' - ')}`
+    //todasDigitadas.innerHTML = `Letters you typed: ${letrasDigitadas.join(' - ')}`
   }
 
-  if(erro >= 7) {
+  if(mistake >= 7) {
     telaFinal.style.display = 'flex'
     palavra.innerHTML = `The word was: <strong>${palavraSecreta}</strong>`
     mensagemFinal.innerHTML = 'YOU LOSE!  <img src="./img/crying.gif" width="50">'
-    todasDigitadas.innerHTML = `Letters you typed: ${letrasDigitadas.join(' - ')}`
+    //todasDigitadas.innerHTML = `Letters you typed: ${letrasDigitadas.join(' - ')}`
   }
 
-  switch(erro) {
+  switch(mistake) {
     case 1:
       cabeca.style.display = 'block'
       cabeca.innerHTML = '<img src="./img/pleading.gif" width="40" style="margin-bottom:-8px">'
@@ -241,7 +241,7 @@ letraDigitada.addEventListener('keyup', (e) => {
       geraDica()
       break
   }
-  mostraErros.innerHTML = erro
+  mostraErros.innerHTML = mistake
 })
 
 function geraDica() {
@@ -252,15 +252,15 @@ function geraDica() {
 btnRecomecar.addEventListener('click', () => {
   telaFinal.style.display = 'none'
   dicaPalavra.style.display = 'none'
-  numAleatorio = Math.trunc(Math.random() * palavras.length)
-  palavraSecreta = palavras[numAleatorio].word
-  dica = palavras[numAleatorio].tip
+  numAleatorio = Math.trunc(Math.random() * words.length)
+  palavraSecreta = words[numAleatorio].word
+  dica = words[numAleatorio].tip
   
   letrasDigitadas = []
   digitadas.innerHTML = ''
   letras = []
   certas = 0
-  erro = 0
+  mistake = 0
   mostraErros.innerHTML = 0
 
   for (let y = 0; y < palavraSecreta.length; y++) {
