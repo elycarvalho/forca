@@ -203,13 +203,29 @@ a{
   margin-left: 30px;
 }
 
+.container_botoes{
+  margin-bottom: 55px;
+  display: flex;
+  justify-content: space-between;
+  width: 240px;
+}
+
+.btn-back{
+  background-color: #fbcb6b;
+  font-size: 1.1rem;
+  border: 2px solid;
+  width: 110px;
+  height: 48px;
+  border-radius: 5px;
+}
+
 .rst-btn{
-  margin-top: 25px;
+  margin-top: 20px;
   width: 65px;
   height: 28px;
   border: none;
   border-radius: 5px;
   font-weight: bold;
-  background-image: radial-gradient(yellow,darkorange);
+  background-image: radial-gradient(#f9fe55,#ffa634);
   box-shadow: 1px 1px 5px;
 }

@@ -203,7 +203,7 @@ letraDigitada.addEventListener('keyup', (e) => {
   if(certas == palavraSecreta.length){
     telaFinal.style.display = 'flex'
     palavra.innerHTML = `The word was: <strong>${palavraSecreta}</strong>`
-    mostraPontuacao.innerHTML = `core: ${pontuacao}`
+    mostraPontuacao.innerHTML = `score: ${pontuacao}`
     mensagemFinal.innerHTML = 'YOU DID IT! <img src="./img/clap.gif" width="50">'
     //todasDigitadas.innerHTML = `Letters you typed: ${letrasDigitadas.join(' - ')}`
   }
