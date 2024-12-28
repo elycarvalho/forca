@@ -23,18 +23,18 @@ const facil = [
   {word:'limão',tip:'fruta azeda'},{word:'laranja',tip:'fruta cítrica'},{word:'margarida',tip:'uma flôr'},
   {word:'farinha',tip:'feita de milho, trigo, mandioca'}, {word:'esmagar',tip:'espremer, apertar com força'},
   {word:'padaria',tip:'tem pão'},{word:'fazenda',tip:'tem criação de animais'},{word:'cadeira',tip:'lugar pra sentar'},
-  {word:'notebook',tip:'laptop'},{word:'colorir',tip:'pintar, preencher com cor'},{word:'deletar',tip:'apagar'},
+  {word:'livro',tip:'páginas'},{word:'colorir',tip:'pintar, preencher com cor'},{word:'deletar',tip:'apagar'},
   {word:'lanterna',tip:'ilumina'},{word:'madeira',tip:'feita com árvores'},{word:'bebida',tip:'água, café, vinho...'},
-  {word:'conversar',tip:'falar'},{word:'cabelo',tip:'tem na cabeça'},{word:'empilhar',tip:'formar pilhas'},
+  {word:'falar',tip:'conversar, dizer'},{word:'cabelo',tip:'tem na cabeça'},{word:'empilhar',tip:'formar pilhas'},
   {word:'escola',tip:'alunos'},{word:'explodir',tip:'estourar'},{word:'biblioteca',tip:'livros'},
-  {word:'dinheiro',tip:'grana'},{word:'ovelha',tip:'carneiro'},{word:'oceano',tip:'mar'},{word:'mansão',tip:'casa'},
+  {word:'grana',tip:'dinheiro'},{word:'ovelha',tip:'carneiro'},{word:'oceano',tip:'mar'},{word:'mansão',tip:'casa'},
   {word:'jogador',tip:"jogo"},{word:'ontem',tip:'hoje'},{word:'chorar',tip:'derramar lágrimas'},{word:'precisar',tip:'necessitar'},
   {word:'filme',tip:'cinema'},{word:'andar',tip:'caminhar'},{word:'retrato',tip:'fotografia'},{word:'cartao',tip:'credito ou debito'},
   {word:'banco',tip:'guarda o dinheiro'},{word:'careca',tip:'sem cabelo'},{word:'obrigado',tip:'agradecimento'},
   {word:'comida',tip:'refeição'},{word:'almoço',tip:'refeição'}, {word:'caneta',tip:'usa pra escrever'},
   {word:'panela',tip:'usa pra cozinhar'},{word:'correto',tip:'certo'},{word:'copiar',tip:'replicar'},
   {word:'espalhar',tip:'antônimo de juntar'},{word:'dezembro',tip:'fim de ano'},{word:'domingo',tip:'setimo dia'},
-  {word:'bicicleta',tip:'bike'},{word:'lampada',tip:'emite luz'}, {word:'menino',tip:'garoto'},{word:'mulher',tip:'homem'},
+  {word:'bike',tip:'bicicleta'},{word:'lampada',tip:'emite luz'}, {word:'menino',tip:'garoto'},{word:'mulher',tip:'homem'},
   {word:'serrote',tip:'usa para serrar'},{word:'baleia',tip:'gigante do mar'},{word:'fogueira',tip:'fogo'},
   {word:'amendoim',tip:'ingrediente da paçoca'},{word:'banda',tip:'toca musica'},{word:'musica',tip:'canção'},
   {word:'rosto',tip:'cara'},{word:'pedra',tip:'rocha'}, {word:'hospital',tip:'trata pacientes'},{word:'elefante',tip:'animal grande'},
@@ -206,11 +206,11 @@ letraDigitada.addEventListener('keyup', (e) => {
     case 5:
       pernaEsq.style.display = 'block'
       cabeca.innerHTML = '<img src="./img/dizzy.gif" width="40" style="margin-bottom:-8px">'
+      geraDica()
       break
     case 6:
       pernaDir.style.display = 'block'
       cabeca.innerHTML = '<img src="./img/x-eyes.gif" width="40" style="margin-bottom:-8px">'
-      geraDica()
       break
   }
   mostraErros.innerHTML = erro

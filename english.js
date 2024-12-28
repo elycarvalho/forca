@@ -50,7 +50,8 @@ const easy_level = [
   {word:'stone',tip:'rock, pebble'},{word:'hospital',tip:'place to treat pacients'},
   {word:'elephant',tip:'big animal'},{word:'butterfly',tip:'insect, beautiful wings'},
   {word:'power',tip:'force, energy'},{word:'unicorn',tip:'horse with horn'},
-  {word:'restaurant',tip:'a place to eat'},{word:'horse',tip:'animal, people ride on it'}
+  {word:'restaurant',tip:'a place to eat'},{word:'horse',tip:'animal, people ride on it'},
+  {word:'foot',tip:'toes'}
 ]
 
 const normal_level = [
@@ -202,7 +203,7 @@ letraDigitada.addEventListener('keyup', (e) => {
   if(certas == palavraSecreta.length){
     telaFinal.style.display = 'flex'
     palavra.innerHTML = `The word was: <strong>${palavraSecreta}</strong>`
-    mostraPontuacao.innerHTML = `score: ${pontuacao}`
+    mostraPontuacao.innerHTML = `core: ${pontuacao}`
     mensagemFinal.innerHTML = 'YOU DID IT! <img src="./img/clap.gif" width="50">'
     //todasDigitadas.innerHTML = `Letters you typed: ${letrasDigitadas.join(' - ')}`
   }
@@ -234,11 +235,11 @@ letraDigitada.addEventListener('keyup', (e) => {
     case 5:
       pernaEsq.style.display = 'block'
       cabeca.innerHTML = '<img src="./img/dizzy.gif" width="40" style="margin-bottom:-8px">'
+      geraDica()
       break
     case 6:
       pernaDir.style.display = 'block'
       cabeca.innerHTML = '<img src="./img/x-eyes.gif" width="40" style="margin-bottom:-8px">'
-      geraDica()
       break
   }
   mostraErros.innerHTML = mistake
